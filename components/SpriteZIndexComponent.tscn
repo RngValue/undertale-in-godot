@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c88lf6hjf1get"]
+
+[ext_resource type="Texture2D" uid="uid://b55g3d5wmw6ks" path="res://sprites/sans/spr_sans_d_0.png" id="1_gm6m6"]
+[ext_resource type="Script" path="res://components/SpriteZIndexComponent.gd" id="2_n0o4i"]
+
+[node name="SpriteZIndexComponent" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_gm6m6")
+script = ExtResource("2_n0o4i")

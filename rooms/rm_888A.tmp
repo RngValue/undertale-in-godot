@@ -1,0 +1,61 @@
+[gd_scene load_steps=13 format=3 uid="uid://dcjvwdb3mpi2v"]
+
+[ext_resource type="Texture2D" uid="uid://b55g3d5wmw6ks" path="res://sprites/sans/spr_sans_d_0.png" id="1_b4jrc"]
+[ext_resource type="PackedScene" uid="uid://bpxqb1haty4qo" path="res://nodes/frisk.tscn" id="1_r4m8l"]
+[ext_resource type="Script" path="res://components/SpriteZIndexComponent.gd" id="2_qsqmr"]
+[ext_resource type="PackedScene" uid="uid://baw1uvyup5ck5" path="res://components/InteractionComponent.tscn" id="3_7gv8q"]
+[ext_resource type="PackedScene" uid="uid://0bijphaxsv0m" path="res://components/DialogInitComponent.tscn" id="4_hekf5"]
+[ext_resource type="PackedScene" uid="uid://dmwj5ascb2dv0" path="res://components/NpcRotationComponent.tscn" id="4_ivjvf"]
+[ext_resource type="JSON" path="res://dialogue/dial_test.json" id="4_jtd37"]
+[ext_resource type="Texture2D" uid="uid://fwmx1o8k2s5v" path="res://sprites/sans/spr_sans_u_0.png" id="6_m2tym"]
+[ext_resource type="Texture2D" uid="uid://dt5df2opg6mel" path="res://sprites/sans/spr_sans_l_0.png" id="7_nao4h"]
+[ext_resource type="Texture2D" uid="uid://dk1xjwvis8q87" path="res://sprites/sans/spr_sans_r_0.png" id="8_kd26w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4f7r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7nse"]
+size = Vector2(22, 22)
+
+[node name="rm_test" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(184, 80)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D/StaticBody2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_r4f7r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_f7nse")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" node_paths=PackedStringArray("Character")]
+texture_filter = 1
+texture = ExtResource("1_b4jrc")
+script = ExtResource("2_qsqmr")
+Character = NodePath("../../Frisk")
+
+[node name="InteractionComponent" parent="Area2D" node_paths=PackedStringArray("AreaNode", "ActionNode") instance=ExtResource("3_7gv8q")]
+AreaNode = NodePath("..")
+ActionNode = NodePath("../DialogInitComponent")
+
+[node name="DialogInitComponent" parent="Area2D" instance=ExtResource("4_hekf5")]
+Dialog = ExtResource("4_jtd37")
+
+[node name="InteractionComponent2" parent="Area2D" node_paths=PackedStringArray("AreaNode", "ActionNode") instance=ExtResource("3_7gv8q")]
+AreaNode = NodePath("..")
+ActionNode = NodePath("../NpcRotationComponent")
+
+[node name="NpcRotationComponent" parent="Area2D" node_paths=PackedStringArray("NpcSpriteNode", "PlayerNode") instance=ExtResource("4_ivjvf")]
+NpcSpriteNode = NodePath("../Sprite2D")
+PlayerNode = NodePath("../../Frisk")
+NpcDown = ExtResource("1_b4jrc")
+NpcUp = ExtResource("6_m2tym")
+NpcLeft = ExtResource("7_nao4h")
+NpcRight = ExtResource("8_kd26w")
+
+[node name="Frisk" parent="." instance=ExtResource("1_r4m8l")]
+z_index = 1
+position = Vector2(128, 104)

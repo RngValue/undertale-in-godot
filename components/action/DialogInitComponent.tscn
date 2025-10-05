@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0bijphaxsv0m"]
+
+[ext_resource type="Script" path="res://components/action/DialogInitComponent.gd" id="1_o7dmu"]
+
+[node name="DialogInitComponent" type="Node"]
+script = ExtResource("1_o7dmu")

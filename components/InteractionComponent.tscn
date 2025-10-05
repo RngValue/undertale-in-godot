@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://baw1uvyup5ck5"]
+
+[ext_resource type="Script" path="res://components/InteractionComponent.gd" id="1_ib570"]
+
+[node name="InteractionComponent" type="Node" node_paths=PackedStringArray("areaNode", "actionNode")]
+script = ExtResource("1_ib570")
+areaNode = NodePath("")
+actionNode = NodePath("")

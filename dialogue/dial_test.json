@@ -1,0 +1,12 @@
+[
+	{ "actor": "sans:spooky", "text": "* fuck you", "autoskip": 1 },
+	{ "actor": "sans:wink", "text": "* i mean...", "autoskip": 1 },
+	{ "animation": "bruh" },
+	{ "actor": "sans:normal", "text": "* heya" },
+	{ "actor": "sans:chuckle1", "text": "* i'm telling yah,¤¤¤¤\n  $ydeltarune$e $c3$e 'round the\n  corner" },
+	{ "text": "* thought i'd let you know" },
+	{ "actor": "wd", "text": "|sI ¤S¤¤U¤¤C¤¤K ¤D¤¤I¤¤C¤¤K¤¤S¤¤.¤¤.¤¤.|e" },
+	{ "actor": "sans:chuckle2", "text": "* oh yeah¤.¤.¤.¤\n  almost forgot"},
+	{ "actor": "sans:spooky", "text": "* |si¤¤ r¤¤e¤¤m¤¤b¤¤e¤¤r¤¤ y¤¤o¤¤u¤¤'¤¤r¤¤e¤¤\n  $rg¤¤e¤¤n¤¤o¤¤c¤¤i¤¤d¤¤e¤¤s¤¤$e|e", "unskippable": 1 },
+	{ "animation": "bruh" },
+]

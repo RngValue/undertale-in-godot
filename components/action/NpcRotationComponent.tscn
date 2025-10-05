@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmwj5ascb2dv0"]
+
+[ext_resource type="Script" path="res://components/action/NpcRotationComponent.gd" id="1_te8jf"]
+
+[node name="NpcRotationComponent" type="Node"]
+script = ExtResource("1_te8jf")

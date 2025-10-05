@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://rhyunntmf28v"]
+
+[ext_resource type="Script" path="res://nodes/gui/dialog_box.gd" id="1_758a6"]
+[ext_resource type="Texture2D" uid="uid://c45adq6707yo" path="res://sprites/gui/spr_dialogbox.png" id="1_mfgk1"]
+[ext_resource type="Texture2D" uid="uid://wk4wpjcp41m2" path="res://sprites/undertale_text_box.png" id="2_y0urm"]
+[ext_resource type="Texture2D" uid="uid://bb4x7hw4df0ks" path="res://sprites/undertale_text_boxa.png" id="3_nv8hy"]
+[ext_resource type="Script" path="res://nodes/gui/fontsData.gd" id="6_6twgt"]
+[ext_resource type="AudioStream" uid="uid://cb86m7ww3egr" path="res://sfx/burps/snd_txtsans.wav" id="6_n0jp8"]
+[ext_resource type="Script" path="res://nodes/gui/burpSounds.gd" id="7_xokso"]
+[ext_resource type="Script" path="res://nodes/gui/textFormat.gd" id="8_yt1hi"]
+
+[node name="DialogBox" type="CanvasLayer"]
+script = ExtResource("1_758a6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 66
+texture_filter = 1
+offset_left = 15.0
+offset_top = 157.0
+offset_right = 304.0
+offset_bottom = 233.0
+texture = ExtResource("1_mfgk1")
+
+[node name="UndertaleTextBox" type="Sprite2D" parent="TextureRect"]
+visible = false
+texture_filter = 1
+position = Vector2(145, 38)
+texture = ExtResource("2_y0urm")
+
+[node name="UndertaleTextBoxa" type="Sprite2D" parent="TextureRect"]
+visible = false
+texture_filter = 1
+position = Vector2(145, 38)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_nv8hy")
+
+[node name="Text" type="RichTextLabel" parent="TextureRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.522491
+anchor_bottom = 0.447368
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 135.0
+offset_bottom = 39.0
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "* Type your dialogue here."
+metadata/_edit_use_anchors_ = true
+
+[node name="TextShifted" type="RichTextLabel" parent="TextureRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.318339
+anchor_bottom = 0.434211
+offset_left = 73.0
+offset_top = 13.0
+offset_right = 193.0
+offset_bottom = 39.0
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "*  heya"
+metadata/_edit_use_anchors_ = true
+
+[node name="portrait" type="Sprite2D" parent="TextureRect"]
+texture_filter = 1
+position = Vector2(18, 15)
+centered = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.02
+
+[node name="burp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_n0jp8")
+
+[node name="fontsData" type="Node" parent="."]
+script = ExtResource("6_6twgt")
+
+[node name="burpSounds" type="Node" parent="."]
+script = ExtResource("7_xokso")
+
+[node name="textFormat" type="Node" parent="."]
+script = ExtResource("8_yt1hi")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
